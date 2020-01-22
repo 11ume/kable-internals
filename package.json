@@ -16,9 +16,6 @@
     "build": "tsc -p ./tsconfig.json",
     "postinstall": "npm run build"
   },
-  "dependencies": {
-    "kable-core": "https://github.com/11ume/kable-core.git"
-  },
   "ava": {
     "compileEnhancements": false,
     "concurrency": 6,
@@ -35,10 +32,14 @@
       "ts-node/register"
     ]
   },
+  "dependencies": {
+    "kable-core": "https://github.com/11ume/kable-core.git",
+    "typescript": "^3.7.5"
+  },
   "devDependencies": {
-    "typescript": "^3.7.5",
+    "ava": "2.4.0",
+    "nyc": "^15.0.0",
     "ts-node": "^8.6.2",
-    "tslint": "^5.20.1",
-    "ava": "2.4.0"
+    "tslint": "^5.20.1"
   }
 }
