@@ -1,5 +1,6 @@
+import KableCore from 'kable-core'
 import { pid } from '../../lib/constants/core'
-import { Kable } from '../../lib/kable'
+import { KableInternals } from '../../lib/kableInternals'
 import { NodeEmitter } from '../../lib/eventDriver'
 import { ExecutionContext } from 'ava'
 import { createUuid, genRandomNumber } from '../../lib/utils'
@@ -7,7 +8,7 @@ import { NodeRegistre, NODE_STATES } from '../../lib/node'
 import * as EVENTS from '../../lib/constants/events'
 import * as os from 'os'
 
-export const checkNodeRegistre = (t: ExecutionContext, r: NodeRegistre, k: Kable) => {
+export const checkNodeRegistre = (t: ExecutionContext, r: NodeRegistre, k: KableInternals) => {
     t.is(r.id, k.id)
     t.is(r.port, k.port)
     t.truthy(r.host)
@@ -20,7 +21,7 @@ export const checkNodeRegistre = (t: ExecutionContext, r: NodeRegistre, k: Kable
 
 export const checkNodeEvent = (t: ExecutionContext
     , p: NodeEmitter
-    , k: Kable
+    , k: KableInternals
     , type: EVENTS.DISCOVERY) => {
     t.is(p.event, type)
     t.is(p.id, k.id)

@@ -1,2 +1,2 @@
-import createKableInternals from './lib/kableInternals'
-export = createKableInternals
+import kableInternals from './lib/kableInternals'
+export = kableInternals

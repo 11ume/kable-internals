@@ -1,13 +1,13 @@
 import test from 'ava'
-import create, { Kabledev } from '../../lib/kableDev'
-import { NodeStack } from '../../lib/orchester'
+import kableInternals, { KableInternals } from '../lib/kableInternals'
+import { NodeStack } from 'kable-core/dist/lib/orchester'
 
 test.serial('orchester: check node work pool', async (t) => {
-    const a = create('a')
-    const b = create('b')
-    const c = create('c')
-    const a1 = create('a', { replica: true })
-    const a2 = create('a', { replica: true })
+    const a = kableInternals('a')
+    const b = kableInternals('b')
+    const c = kableInternals('c')
+    const a1 = kableInternals('a', { replica: true })
+    const a2 = kableInternals('a', { replica: true })
 
     await b.up()
     await c.up()
@@ -15,7 +15,7 @@ test.serial('orchester: check node work pool', async (t) => {
     await a1.up()
     await a2.up()
 
-    const getStack = (k: Kabledev): Promise<NodeStack> => new Promise((r) => {
+    const getStack = (k: KableInternals): Promise<NodeStack> => new Promise((r) => {
         setTimeout(() => r(k.getNodeWorkPool()), 2100)
     })
 
@@ -44,11 +44,11 @@ test.serial('orchester: check node work pool', async (t) => {
 })
 
 test.serial('orchester: check async node work pool', async (t) => {
-    const a = create('a')
-    const b = create('b')
-    const c = create('c')
-    const a1 = create('a', { replica: true })
-    const a2 = create('a', { replica: true })
+    const a = kableInternals('a')
+    const b = kableInternals('b')
+    const c = kableInternals('c')
+    const a1 = kableInternals('a', { replica: true })
+    const a2 = kableInternals('a', { replica: true })
 
     b.up()
     setTimeout(c.up, 4000)
@@ -56,7 +56,7 @@ test.serial('orchester: check async node work pool', async (t) => {
     a1.up()
     a2.up()
 
-    const getStack = (k: Kabledev): Promise<NodeStack> => new Promise((r) => {
+    const getStack = (k: KableInternals): Promise<NodeStack> => new Promise((r) => {
         setTimeout(() => r(k.getNodeWorkPool()), 5000)
     })
 
