@@ -1,7 +1,13 @@
 import { NodeStack } from 'kable-core/lib/orchester'
 import { EventsDriver } from 'kable-core/lib/eventsDriver'
 import { NodeDependency } from 'kable-core/lib/dependency'
-import { Kable, KableCore, Implementables, KableComposedOptions, implementations } from 'kable-core/lib/kable'
+import {
+    Kable
+    , KableCore
+    , Implementables
+    , KableComposedOptions
+    , implementations
+} from 'kable-core/lib/kable'
 
 export interface KableInternals extends Kable, EventsDriver {
     /** Get queue of promises, which are waiting to take a node */

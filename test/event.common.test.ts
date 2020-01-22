@@ -1,8 +1,8 @@
 import test from 'ava'
 import * as EVENTS from 'kable-core/lib/constants/events'
 import { NodeEmitter } from 'kable-core/lib/eventsDriver'
-import kableInternals from '../lib/kableInternals'
 import { checkNodeEvent } from './utils/helpers'
+import kableInternals from '../lib/kableInternals'
 
 test.serial('discovery: recibe hello event', async (t) => {
     const foo = kableInternals('foo')
