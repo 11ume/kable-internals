@@ -1,12 +1,12 @@
 import test from 'ava'
-import kableDev from '../../../lib/kableDev'
-import * as EVENTS from '../../../lib/constants/events'
-import { NodeEmitter } from '../../../lib/eventDriver'
-import { checkNodeEvent } from '../../utils/helpers'
+import * as EVENTS from 'kable-core/lib/constants/events'
+import { NodeEmitter } from 'kable-core/lib/eventsDriver'
+import kableInternals from '../lib/kableInternals'
+import { checkNodeEvent } from './utils/helpers'
 
 test.serial('discovery: recibe hello event', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     const handleHelloEvent = (): Promise<NodeEmitter> => new Promise((resolve) => {
         foo.on(EVENTS.DISCOVERY.HELLO, resolve)
@@ -23,8 +23,8 @@ test.serial('discovery: recibe hello event', async (t) => {
 })
 
 test.serial('discovery: recibe advertisement event', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     const handleAdvertisementEvent = (): Promise<NodeEmitter> => new Promise((resolve) => {
         foo.on(EVENTS.DISCOVERY.ADVERTISEMENT, resolve)
@@ -41,8 +41,8 @@ test.serial('discovery: recibe advertisement event', async (t) => {
 })
 
 test.serial('discovery: recibe unregistre event', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     const handleUnregEvent = (): Promise<NodeEmitter> => new Promise((resolve) => {
         foo.on(EVENTS.DISCOVERY.UNREGISTRE, resolve)

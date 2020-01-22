@@ -1,12 +1,12 @@
 import test from 'ava'
-import kableDev from '../../../lib/kable.dev'
-import * as EVENTS from '../../../lib/constants/events'
-import { NodeEmitter } from '../../../lib/eventDriver'
-import { NODE_STATES } from './../../../lib/node'
+import * as EVENTS from 'kable-core/lib/constants/events'
+import { NodeEmitter } from 'kable-core/lib/eventsDriver'
+import { NODE_STATES } from 'kable-core/lib/node'
+import kableInternals from '../lib/kableInternals'
 
 test.serial('discovery: check up avertisament event payload state', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     await foo.up()
     await bar.up()
@@ -24,8 +24,8 @@ test.serial('discovery: check up avertisament event payload state', async (t) =>
 })
 
 test.serial('discovery: check down uregistre event payload state', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     await foo.up()
     await bar.up()
@@ -43,8 +43,8 @@ test.serial('discovery: check down uregistre event payload state', async (t) => 
 })
 
 test.serial('discovery: check up not upning avertisament event payload state', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     await foo.up(false)
     await bar.up()
@@ -64,8 +64,8 @@ test.serial('discovery: check up not upning avertisament event payload state', a
 })
 
 test.serial('discovery: check stop avertisament event payload state', async (t) => {
-    const foo = kableDev('foo')
-    const bar = kableDev('bar')
+    const foo = kableInternals('foo')
+    const bar = kableInternals('bar')
 
     const reason = 'any reason'
     await foo.up()

@@ -1,6 +1,6 @@
 import test from 'ava'
+import { NodeStack } from 'kable-core/lib/orchester'
 import kableInternals, { KableInternals } from '../lib/kableInternals'
-import { NodeStack } from 'kable-core/dist/lib/orchester'
 
 test.serial('orchester: check node work pool', async (t) => {
     const a = kableInternals('a')

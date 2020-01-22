@@ -1,8 +1,7 @@
-import KableCore from 'kable-core'
 import { NodeStack } from 'kable-core/lib/orchester'
-import { EventsDriver } from 'kable-core/lib/eventDriver'
+import { EventsDriver } from 'kable-core/lib/eventsDriver'
 import { NodeDependency } from 'kable-core/lib/dependency'
-import { Kable, Implementables, KableComposedOptions } from 'kable-core/lib/kable'
+import { Kable, KableCore, Implementables, KableComposedOptions, implementations } from 'kable-core/lib/kable'
 
 export interface KableInternals extends Kable, EventsDriver {
     /** Get queue of promises, which are waiting to take a node */
@@ -15,7 +14,7 @@ export interface KableInternals extends Kable, EventsDriver {
 
 const KableInternals = (implement: Implementables): KableInternals => {
     const { eventsDriver, nodePicker, orchester, dependencyManager } = implement
-    const k = Kable(implement)
+    const k = KableCore(implement)
     const Kdriver = Object.assign(eventsDriver, k)
     return Object.assign(Kdriver, {
         getPickQueue: nodePicker.getPickQueue
@@ -32,7 +31,7 @@ const createKableInternals = (id?: string, options?: KableComposedOptions) => {
         , ...options
     }
 
-    return KableInternals(KableCore.Kable.implementations(opts))
+    return KableInternals(implementations(opts))
 }
 
 export default createKableInternals

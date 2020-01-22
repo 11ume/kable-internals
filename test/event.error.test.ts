@@ -1,12 +1,12 @@
 import test from 'ava'
-import kableDev from '../../../lib/kable.dev'
-import * as EVENTS from '../../../lib/constants/events'
-import * as EVENTS_TYPES from '../../../lib/constants/eventTypes'
-import { ErrorDuplicatedNodeEmitter } from '../../../lib/eventDriver'
+import * as EVENTS from 'kable-core/lib/constants/events'
+import * as EVENTS_TYPES from 'kable-core/lib/constants/eventTypes'
+import { ErrorDuplicatedNodeEmitter } from 'kable-core/lib/eventsDriver'
+import kableInternals from '../lib/kableInternals'
 
 test.serial('pick: detect duplicated id error event', async (t) => {
-    const foo = kableDev('foo')
-    const fooDuplicated = kableDev('foo')
+    const foo = kableInternals('foo')
+    const fooDuplicated = kableInternals('foo')
 
     await foo.up()
     await fooDuplicated.up()
