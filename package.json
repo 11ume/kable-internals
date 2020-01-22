@@ -1,0 +1,23 @@
+{
+  "name": "kable-internals",
+  "version": "0.0.1",
+  "description": "Kable system internals",
+  "main": "./dist/main.js",
+  "author": {
+    "name": "Horacio Rivero",
+    "email": "horacioriverods@gmail.com"
+  },
+  "repository": "11ume/kable-internals",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "kable-core": "https://github.com/11ume/kable-core.git"
+  },
+  "devDependencies": {
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
