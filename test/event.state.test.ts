@@ -4,7 +4,7 @@ import { NodeEmitter } from 'kable-core/lib/eventsDriver'
 import { NODE_STATES } from 'kable-core/lib/node'
 import kableInternals from '../lib/kableInternals'
 
-test.serial('discovery: check up avertisament event payload state', async (t) => {
+test.serial('check up avertisament event payload state', async (t) => {
     const foo = kableInternals('foo')
     const bar = kableInternals('bar')
 
@@ -23,7 +23,7 @@ test.serial('discovery: check up avertisament event payload state', async (t) =>
     bar.down()
 })
 
-test.serial('discovery: check down uregistre event payload state', async (t) => {
+test.serial('check down uregistre event payload state', async (t) => {
     const foo = kableInternals('foo')
     const bar = kableInternals('bar')
 
@@ -42,7 +42,7 @@ test.serial('discovery: check down uregistre event payload state', async (t) => 
     bar.down()
 })
 
-test.serial('discovery: check up not upning avertisament event payload state', async (t) => {
+test.serial('check up not upning avertisament event payload state', async (t) => {
     const foo = kableInternals('foo')
     const bar = kableInternals('bar')
 
@@ -63,7 +63,7 @@ test.serial('discovery: check up not upning avertisament event payload state', a
     bar.down()
 })
 
-test.serial('discovery: check stop avertisament event payload state', async (t) => {
+test.serial('check stop avertisament event payload state', async (t) => {
     const foo = kableInternals('foo')
     const bar = kableInternals('bar')
 

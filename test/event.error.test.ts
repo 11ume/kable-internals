@@ -4,7 +4,7 @@ import * as EVENTS_TYPES from 'kable-core/lib/constants/eventTypes'
 import { ErrorDuplicatedNodeEmitter } from 'kable-core/lib/eventsDriver'
 import kableInternals from '../lib/kableInternals'
 
-test.serial('pick: detect duplicated id error event', async (t) => {
+test.serial('detect duplicated id error event', async (t) => {
     const foo = kableInternals('foo')
     const fooDuplicated = kableInternals('foo')
 
