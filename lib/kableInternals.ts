@@ -7,7 +7,7 @@ import {
     , KableCore
     , Implementables
     , KableComposedOptions
-    , implementations
+    , implementables
 } from 'kable-core/lib/kable'
 
 export interface KableInternals extends Kable, EventsDriver {
@@ -43,7 +43,7 @@ const createKableInternals = (id?: string, options?: KableComposedOptions) => {
         , ...options
     }
 
-    return KableInternals(implementations(opts))
+    return KableInternals(implementables(opts))
 }
 
 export default createKableInternals
