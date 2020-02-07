@@ -1,4 +1,4 @@
-import { NodeStack } from 'kable-core/lib/orchester'
+import { NodePoolStackEntries } from 'kable-core/lib/orchester'
 import { EventsDriver } from 'kable-core/lib/eventsDriver'
 import { NodeDependency } from 'kable-core/lib/dependency'
 import {
@@ -6,14 +6,14 @@ import {
     , KableCore
     , Implementables
     , KableComposedOptions
-    , implementations
+    , implementables
 } from 'kable-core/lib/kable'
 
 export interface KableInternals extends Kable, EventsDriver {
     /** Get queue of promises, which are waiting to take a node */
     getPickQueue(): Map<symbol, { id: string }>
     /** Get node work pool, is a stack of enlisted and organized nodes, used to apply the load balancer algorithm */
-    getNodeWorkPool(): NodeStack
+    getNodePoolStack(): NodePoolStackEntries
     /** Get node dependecies */
     getDepedencies(): NodeDependency[]
 }
@@ -24,7 +24,7 @@ const KableInternals = (implement: Implementables): KableInternals => {
     const Kdriver = Object.assign(eventsDriver, k)
     return Object.assign(Kdriver, {
         getPickQueue: nodePicker.getPickQueue
-        , getNodeWorkPool: orchester.getNodeWorkPool
+        , getNodePoolStack: orchester.getNodePoolStack
         , getDepedencies() {
             return Array.from(dependencyManager.getAll().values())
         }
@@ -37,7 +37,7 @@ const createKableInternals = (id?: string, options?: KableComposedOptions) => {
         , ...options
     }
 
-    return KableInternals(implementations(opts))
+    return KableInternals(implementables(opts))
 }
 
 export default createKableInternals

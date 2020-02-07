@@ -9,7 +9,7 @@
 <br>
 <br>
 
-**Kable-internals** — Is a little module to interact and test, the kable core functionalities
+**Kable-internals** — Is a little module to interact with some deep functionalities of kable
 <br>
 
 **This project is under developement 🔥**
