@@ -1,8 +1,10 @@
 {
   "name": "kable-internals",
   "version": "0.0.1",
-  "description": "Kable system internals",
-  "main": "./dist/main.js",
+  "description": "Is a little module to interact with some deep functionalities of kable",
+  "main": "main.js",
+  "types": "main.ts",
+  "sideEffects": false,
   "author": {
     "name": "Horacio Rivero",
     "email": "horacioriverods@gmail.com"
